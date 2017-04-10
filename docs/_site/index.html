@@ -1,0 +1,460 @@
+<html>
+    <head>
+        <title>Learn Scrapy</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link rel="stylesheet" href="css/style.css" />
+
+    </head>
+    <body>
+        <div class="header">
+    <h1 class="title">Learn Scrapy</h1>
+</div>
+
+<div class="container">
+    
+    <div class="row video-row">
+        <div class="col-md-6 video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/vkA1cWN4DEc" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="col-md-6 video-details">
+            <h2 id="unit1">1. Getting Started with Web Scraping</h2>
+            <p>This video covers the basics of web scraping using your web browser, Scrapy shell and CSS selectors.</p>
+            <h3>Topics</h3>
+            <ul>
+                
+                <li>How to identify the data via Browser's "inspect element" tool</li>
+                
+                <li>How to build CSS selectors using Scrapy Shell</li>
+                
+            </ul>
+            <h3>Further Reading</h3>
+            <ul>
+                
+                <li><a href="https://doc.scrapy.org/en/latest/intro/tutorial.html">Scrapy Tutorial</a></li>
+                
+                <li><a href="https://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048">The 30 CSS selectors you must memorize</a></li>
+                
+                <li><a href="http://toolness.github.io/css-selector-game/">An interactive tutorial on CSS selectors</a></li>
+                
+            </ul>
+            <div class="spider">
+                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code0">
+                    Toggle code
+                </button>
+            </div>
+        </div>
+        <div id="code0" class="collapse code">
+                <pre><code class="python">$ scrapy shell http://quotes.toscrape.com/random
+>>> response.css('small.author::text').extract_first()
+>>> response.css('span.text::text').extract_first()
+>>> response.css('a.tag::text').extract()
+</code></pre>
+            </div>
+    </div>
+    
+    <div class="row video-row">
+        <div class="col-md-6 video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/qPvPiMbPSTE" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="col-md-6 video-details">
+            <h2 id="unit2">2. Creating your First Scrapy Spider</h2>
+            <p>This video shows how to create a Scrapy spider using the selectos built in the previous video.</p>
+            <h3>Topics</h3>
+            <ul>
+                
+                <li>The anatomy of a Scrapy spider</li>
+                
+                <li>How to run a spider</li>
+                
+            </ul>
+            <h3>Further Reading</h3>
+            <ul>
+                
+                <li><a href="https://doc.scrapy.org/en/latest/intro/tutorial.html">Scrapy Tutorial</a></li>
+                
+                <li><a href="https://doc.scrapy.org/en/latest/topics/commands.html#available-tool-commands">Scrapy CLI tool commands</a></li>
+                
+            </ul>
+            <div class="spider">
+                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code1">
+                    Toggle code
+                </button>
+            </div>
+        </div>
+        <div id="code1" class="collapse code">
+                <pre><code class="python"># -*- coding: utf-8 -*-
+import scrapy
+
+
+class SingleQuoteSpider(scrapy.Spider):
+    name = "single-quote"
+    allowed_domains = ["toscrape.com"]
+    start_urls = ['http://quotes.toscrape.com/random']
+
+    def parse(self, response):
+        self.log('I just visited: ' + response.url)
+        for quote in response.css('div.quote'):
+            item = {
+                'author_name': quote.css('small.author::text').extract_first(),
+                'text': quote.css('span.text::text').extract_first(),
+                'tags': quote.css('a.tag::text').extract(),
+            }
+            yield item
+</code></pre>
+            </div>
+    </div>
+    
+    <div class="row video-row">
+        <div class="col-md-6 video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/E6lOVwigsNA" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="col-md-6 video-details">
+            <h2 id="unit3">3. Scraping Multiple Items per Page</h2>
+            <p>This video shows how to extract many items from a single page. This is a very common pattern that applies to e-commerces, forums, etc.
+</p>
+            <h3>Topics</h3>
+            <ul>
+                
+                <li>How to iterate over page elements</li>
+                
+                <li>How to extract data from repeating elements</li>
+                
+            </ul>
+            <h3>Further Reading</h3>
+            <ul>
+                
+                <li><a href="https://doc.scrapy.org/en/latest/intro/tutorial.html">Scrapy Tutorial</a></li>
+                
+            </ul>
+            <div class="spider">
+                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code2">
+                    Toggle code
+                </button>
+            </div>
+        </div>
+        <div id="code2" class="collapse code">
+                <pre><code class="python"># -*- coding: utf-8 -*-
+import scrapy
+
+
+class MultipleQuotesSpider(scrapy.Spider):
+    name = "multiple-quotes"
+    allowed_domains = ["toscrape.com"]
+    start_urls = ['http://quotes.toscrape.com']
+
+    def parse(self, response):
+        self.log('I just visited: ' + response.url)
+        for quote in response.css('div.quote'):
+            item = {
+                'author_name': quote.css('small.author::text').extract_first(),
+                'text': quote.css('span.text::text').extract_first(),
+                'tags': quote.css('a.tag::text').extract(),
+            }
+            yield item
+</code></pre>
+            </div>
+    </div>
+    
+    <div class="row video-row">
+        <div class="col-md-6 video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/G9Nni6G-iOc" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="col-md-6 video-details">
+            <h2 id="unit4">4. Following Pagination Links</h2>
+            <p>This video shows how to build a spider with the ability to jump from one page to another.</p>
+            <h3>Topics</h3>
+            <ul>
+                
+                <li>How to find links in a page</li>
+                
+                <li>How to create requests to other pages</li>
+                
+            </ul>
+            <h3>Further Reading</h3>
+            <ul>
+                
+                <li><a href="https://doc.scrapy.org/en/latest/intro/tutorial.html">Scrapy Tutorial</a></li>
+                
+                <li><a href="https://doc.scrapy.org/en/latest/topics/spiders.html#generic-spiders">CrawlSpider - a generic spider to crawl based on rules</a></li>
+                
+                <li><a href="https://doc.scrapy.org/en/latest/topics/spiders.html#sitemapspider">SitemapSpider - a generic spider to crawl from sitemaps</a></li>
+                
+            </ul>
+            <div class="spider">
+                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code3">
+                    Toggle code
+                </button>
+            </div>
+        </div>
+        <div id="code3" class="collapse code">
+                <pre><code class="python"># -*- coding: utf-8 -*-
+import scrapy
+
+
+class MultipleQuotesPaginationSpider(scrapy.Spider):
+    name = "multiple-quotes-pagination"
+    allowed_domains = ["toscrape.com"]
+    start_urls = ['http://quotes.toscrape.com']
+
+    def parse(self, response):
+        self.log('I just visited: ' + response.url)
+        for quote in response.css('div.quote'):
+            item = {
+                'author_name': quote.css('small.author::text').extract_first(),
+                'text': quote.css('span.text::text').extract_first(),
+                'tags': quote.css('a.tag::text').extract(),
+            }
+            yield item
+        # follow pagination link
+        next_page_url = response.css('li.next > a::attr(href)').extract_first()
+        if next_page_url:
+            next_page_url = response.urljoin(next_page_url)
+            yield scrapy.Request(url=next_page_url, callback=self.parse)
+</code></pre>
+            </div>
+    </div>
+    
+    <div class="row video-row">
+        <div class="col-md-6 video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/JW_FxkSohkA" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="col-md-6 video-details">
+            <h2 id="unit5">5. Scraping Details Pages from Lists</h2>
+            <p>This video shows how to scrape websites that are structured similarly to e-commerces, where there are lists of products and then we have to visit each product page to get the data we need.
+</p>
+            <h3>Topics</h3>
+            <ul>
+                
+                <li>Dealing with multiple pages with different formats</li>
+                
+                <li>Multiple callbacks per spider</li>
+                
+            </ul>
+            <h3>Further Reading</h3>
+            <ul>
+                
+                <li><a href="https://doc.scrapy.org/en/latest/intro/tutorial.html">Scrapy Tutorial</a></li>
+                
+            </ul>
+            <div class="spider">
+                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code4">
+                    Toggle code
+                </button>
+            </div>
+        </div>
+        <div id="code4" class="collapse code">
+                <pre><code class="python"># -*- coding: utf-8 -*-
+import scrapy
+
+
+class AuthorsSpider(scrapy.Spider):
+    name = "authors"
+    start_urls = ['http://quotes.toscrape.com']
+
+    def parse(self, response):
+        urls = response.css('div.quote > span > a::attr(href)').extract()
+        for url in urls:
+            url = response.urljoin(url)
+            yield scrapy.Request(url=url, callback=self.parse_details)
+
+        # follow pagination link
+        next_page_url = response.css('li.next > a::attr(href)').extract_first()
+        if next_page_url:
+            next_page_url = response.urljoin(next_page_url)
+            yield scrapy.Request(url=next_page_url, callback=self.parse)
+
+    def parse_details(self, response):
+        yield {
+            'name': response.css('h3.author-title::text').extract_first(),
+            'birth_date': response.css('span.author-born-date::text').extract_first(),
+        }
+</code></pre>
+            </div>
+    </div>
+    
+    <div class="row video-row">
+        <div class="col-md-6 video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/EelmnSzykyI" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="col-md-6 video-details">
+            <h2 id="unit6">6. Scraping Infinite Scrolling Pages</h2>
+            <p>This video shows how to find and use underlying APIs that power AJAX-based infinite scrolling mechanisms in web pages.
+</p>
+            <h3>Topics</h3>
+            <ul>
+                
+                <li>Inspecting the network requests from your browser</li>
+                
+                <li>Reverse engineer network requests</li>
+                
+                <li>Extract data from a JSON-based HTTP API</li>
+                
+            </ul>
+            <h3>Further Reading</h3>
+            <ul>
+                
+                <li><a href="https://blog.scrapinghub.com/2016/06/22/scrapy-tips-from-the-pros-june-2016/">Scraping Infinite Scrolling Pages (blog post)</a></li>
+                
+                <li><a href="https://code.tutsplus.com/articles/chrome-dev-tools-networking-and-the-console--net-28167">Chrome DevTools - Networking and the Console</a></li>
+                
+                <li><a href="https://ianlondon.github.io/blog/web-scraping-discovering-hidden-apis/">Web Scraping - Discovering Hidden APIs</a></li>
+                
+            </ul>
+            <div class="spider">
+                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code5">
+                    Toggle code
+                </button>
+            </div>
+        </div>
+        <div id="code5" class="collapse code">
+                <pre><code class="python"># -*- coding: utf-8 -*-
+import json
+import scrapy
+
+
+class QuotesInfiniteScrollSpider(scrapy.Spider):
+    name = "quotes-infinite-scroll"
+    api_url = 'http://quotes.toscrape.com/api/quotes?page={}'
+    start_urls = [api_url.format(1)]
+
+    def parse(self, response):
+        data = json.loads(response.text)
+        for quote in data['quotes']:
+            yield {
+                'author_name': quote['author']['name'],
+                'text': quote['text'],
+                'tags': quote['tags'],
+            }
+        if data['has_next']:
+            next_page = data['page'] + 1
+            yield scrapy.Request(url=self.api_url.format(next_page), callback=self.parse)
+</code></pre>
+            </div>
+    </div>
+    
+    <div class="row video-row">
+        <div class="col-md-6 video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Lo3aswJ7lzw" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="col-md-6 video-details">
+            <h2 id="unit7">7. Submitting Forms in your Spiders</h2>
+            <p>This video shows how to scrape pages where the users have to submit POST requests, such as login forms.
+</p>
+            <h3>Topics</h3>
+            <ul>
+                
+                <li>Submitting POST requests with Scrapy</li>
+                
+                <li>Handling validation tokens</li>
+                
+                <li>Authenticating in a website</li>
+                
+            </ul>
+            <h3>Further Reading</h3>
+            <ul>
+                
+                <li><a href="https://doc.scrapy.org/en/latest/topics/request-response.html#formrequest-objects">FormRequest documentation</a></li>
+                
+                <li><a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">Understanding CSRF</a></li>
+                
+                <li><a href="https://blog.scrapinghub.com/2016/04/20/scrapy-tips-from-the-pros-april-2016-edition/">Scraping websites based on ViewStates</a></li>
+                
+            </ul>
+            <div class="spider">
+                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code6">
+                    Toggle code
+                </button>
+            </div>
+        </div>
+        <div id="code6" class="collapse code">
+                <pre><code class="python"># -*- coding: utf-8 -*-
+import scrapy
+
+
+class QuotesLoginSpider(scrapy.Spider):
+    name = 'quotes-login'
+    login_url = 'http://quotes.toscrape.com/login'
+    start_urls = [login_url]
+
+    def parse(self, response):
+        # extract the csrf token value
+        token = response.css('input[name="csrf_token"]::attr(value)').extract_first()
+        # create a python dictionary with the form values
+        data = {
+            'csrf_token': token,
+            'username': 'abc',
+            'password': 'abc',
+        }
+        # submit a POST request to it
+        yield scrapy.FormRequest(url=self.login_url, formdata=data, callback=self.parse_quotes)
+
+    def parse_quotes(self, response):
+        """Parse the main page after the spider is logged in"""
+        for q in response.css('div.quote'):
+            yield {
+                'author_name': q.css('small.author::text').extract_first(),
+                'author_url': q.css(
+                    'small.author ~ a[href*="goodreads.com"]::attr(href)'
+                ).extract_first()
+            }
+</code></pre>
+            </div>
+    </div>
+    
+    <div class="row video-row">
+        <div class="col-md-6 video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/mw_Vo9m0l8o" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="col-md-6 video-details">
+            <h2 id="unit8">8. Run your Spiders in the Cloud</h2>
+            <p>This video shows how you can deploy, run and manage your crawlers in the cloud, using Scrapy Cloud.
+</p>
+            <h3>Topics</h3>
+            <ul>
+                
+                <li>Using Shub, the Scrapinghub client</li>
+                
+                <li>Fetching the scraped data from the Cloud</li>
+                
+                <li>Scrapy Cloud features</li>
+                
+            </ul>
+            <h3>Further Reading</h3>
+            <ul>
+                
+                <li><a href="https://shub.readthedocs.io/en/stable/">Shub documentation</a></li>
+                
+                <li><a href="https://github.com/scrapinghub/python-scrapinghub">Scrapinghub Python client library</a></li>
+                
+                <li><a href="https://helpdesk.scrapinghub.com/support/solutions/articles/22000200400-dependencies-in-scrapy-cloud-projects">Dependencies in Scrapy Cloud Projects</a></li>
+                
+            </ul>
+            <div class="spider">
+                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code7">
+                    Toggle code
+                </button>
+            </div>
+        </div>
+        <div id="code7" class="collapse code">
+                <pre><code class="python">$ pip install shub
+$ shub login
+$ shub deploy
+$ shub schedule quotes
+</code></pre>
+            </div>
+    </div>
+    
+</div>
+
+<footer>
+    <p>Brought to you with ❤️ by <a href="https://scrapinghub.com">Scrapinghub</a></p>
+</footer>
+
+
+    </body>
+</html>
