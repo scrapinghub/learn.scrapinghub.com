@@ -1,0 +1,39 @@
+---
+layout: default
+---
+{% include header.html %}
+<div class="container">
+    {% for video in site.data.videos %}
+    <div class="row video-row">
+        <div class="col-md-6 video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video.id }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="col-md-6 video-details">
+            <h2 id="unit{{ forloop.index }}">{{ forloop.index }}. {{ video.title }}</h2>
+            <p>{{ video.description }}</p>
+            <h3>Topics</h3>
+            <ul>
+                {% for topic in video.topics %}
+                <li>{{ topic }}</li>
+                {% endfor %}
+            </ul>
+            <h3>Further Reading</h3>
+            <ul>
+                {% for ref in video.references %}
+                <li><a href="{{ ref.url }}">{{ ref.description }}</a></li>
+                {% endfor %}
+            </ul>
+            <div class="spider">
+                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code{{ forloop.index0 }}">
+                    Toggle code
+                </button>
+            </div>
+        </div>
+        <div id="code{{ forloop.index0 }}" class="collapse code">
+                <pre><code class="python">{% include spiders/{{forloop.index0}}.py %}</code></pre>
+            </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% include footer.html %}

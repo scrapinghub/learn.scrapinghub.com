@@ -1,0 +1,12 @@
+title: Learn Scrapy
+description: >
+  Learn Scrapy from thr ground up through this series of educational videos. It covers
+  from the first steps to AJAX based pages.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: scrapinghub
+github_username:  scrapinghub
+
+exclude:
+  - Gemfile
+  - Gemfile.lock

@@ -1,0 +1,108 @@
+- id: vkA1cWN4DEc
+  title: Getting Started with Web Scraping
+  description: This video covers the basics of web scraping using your web browser, Scrapy shell and CSS selectors.
+  topics:
+    - How to identify the data via Browser's "inspect element" tool
+    - How to build CSS selectors using Scrapy Shell
+  references:
+    - url: https://doc.scrapy.org/en/latest/intro/tutorial.html
+      description: Scrapy Tutorial
+    - url: https://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048
+      description: The 30 CSS selectors you must memorize
+    - url: http://toolness.github.io/css-selector-game/
+      description: An interactive tutorial on CSS selectors
+- id: qPvPiMbPSTE
+  title: Creating your First Scrapy Spider
+  description: This video shows how to create a Scrapy spider using the selectos built in the previous video.
+  topics:
+    - The anatomy of a Scrapy spider
+    - How to run a spider
+  references:
+    - url: https://doc.scrapy.org/en/latest/intro/tutorial.html
+      description: Scrapy Tutorial
+    - url: https://doc.scrapy.org/en/latest/topics/commands.html#available-tool-commands
+      description: Scrapy CLI tool commands
+- id: E6lOVwigsNA
+  title: Scraping Multiple Items per Page
+  description: >
+    This video shows how to extract many items from a single page. This is a very common pattern
+    that applies to e-commerces, forums, etc.
+  topics:
+    - How to iterate over page elements
+    - How to extract data from repeating elements
+  references:
+    - url: https://doc.scrapy.org/en/latest/intro/tutorial.html
+      description: Scrapy Tutorial
+- id: G9Nni6G-iOc
+  title: Following Pagination Links
+  description: This video shows how to build a spider with the ability to jump from one page to another.
+  topics:
+    - How to find links in a page
+    - How to create requests to other pages
+  references:
+    - url: https://doc.scrapy.org/en/latest/intro/tutorial.html
+      description: Scrapy Tutorial
+    - url: https://doc.scrapy.org/en/latest/topics/spiders.html#generic-spiders
+      description: CrawlSpider - a generic spider to crawl based on rules
+    - url: https://doc.scrapy.org/en/latest/topics/spiders.html#sitemapspider
+      description: SitemapSpider - a generic spider to crawl from sitemaps
+- id: JW_FxkSohkA
+  title: Scraping Details Pages from Lists
+  description: >
+    This video shows how to scrape websites that are structured similarly to e-commerces,
+    where there are lists of products and then we have to visit each product page to get the
+    data we need.
+  topics:
+    - Dealing with multiple pages with different formats
+    - Multiple callbacks per spider
+  references:
+    - url: https://doc.scrapy.org/en/latest/intro/tutorial.html
+      description: Scrapy Tutorial
+- id: EelmnSzykyI
+  title: Scraping Infinite Scrolling Pages
+  description: >
+    This video shows how to find and use underlying APIs that power AJAX-based infinite
+    scrolling mechanisms in web pages.
+  topics:
+    - Inspecting the network requests from your browser
+    - Reverse engineer network requests
+    - Extract data from a JSON-based HTTP API
+  references:
+    - url: https://blog.scrapinghub.com/2016/06/22/scrapy-tips-from-the-pros-june-2016/
+      description: Scraping Infinite Scrolling Pages (blog post)
+    - url: https://code.tutsplus.com/articles/chrome-dev-tools-networking-and-the-console--net-28167
+      description: Chrome DevTools - Networking and the Console
+    - url: https://ianlondon.github.io/blog/web-scraping-discovering-hidden-apis/
+      description: Web Scraping - Discovering Hidden APIs
+- id: Lo3aswJ7lzw
+  title: Submitting Forms in your Spiders
+  description: >
+    This video shows how to scrape pages where the users have to submit POST requests,
+    such as login forms.
+  topics:
+    - Submitting POST requests with Scrapy
+    - Handling validation tokens
+    - Authenticating in a website
+  references:
+    - url: https://doc.scrapy.org/en/latest/topics/request-response.html#formrequest-objects
+      description: FormRequest documentation
+    - url: https://en.wikipedia.org/wiki/Cross-site_request_forgery
+      description: Understanding CSRF
+    - url: https://blog.scrapinghub.com/2016/04/20/scrapy-tips-from-the-pros-april-2016-edition/
+      description: Scraping websites based on ViewStates
+- id: mw_Vo9m0l8o
+  title: Run your Spiders in the Cloud
+  description: >
+    This video shows how you can deploy, run and manage your crawlers in the cloud, using
+    Scrapy Cloud.
+  topics:
+    - Using Shub, the Scrapinghub client
+    - Fetching the scraped data from the Cloud
+    - Scrapy Cloud features
+  references:
+    - url: https://shub.readthedocs.io/en/stable/
+      description: Shub documentation
+    - url: https://github.com/scrapinghub/python-scrapinghub
+      description: Scrapinghub Python client library
+    - url: https://helpdesk.scrapinghub.com/support/solutions/articles/22000200400-dependencies-in-scrapy-cloud-projects
+      description: Dependencies in Scrapy Cloud Projects
