@@ -1,25 +1,43 @@
 body {
     background-color: #ffffff;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    color: #607d8b;
+}
+
+a {
+    color: #3f51b5;
+}
+
+div.container {
+    padding: 20px 0;
 }
 
 div.header {
-    background-color: #CC0B0F;
+    background-color: #d32f2f;
     padding: 60px;
     margin-bottom: 25px;
 }
 
 h1.title {
     text-align: center;
-    font-size: 80px;
-    font-weight: bolder;
+    font-size: 70px;
+    font-weight: normal;
     color: #eeeeee;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 div.video-row {
-    background-color: #eceff1;
+    background-color: #fff;
     margin-left: 0px;
     margin-right: 0px;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
+    border-radius: 4px;
+    box-shadow: 0 5px 30px rgba(0,0,0, 0.15);
+}
+div.video-row h2 {
+    color: #37474f;
+    margin-bottom: 20px;
 }
 
 div.video {
@@ -28,7 +46,7 @@ div.video {
 
 div.video-details {
     padding-left: 40px;
-    height: 315px;
+    height: 330px;
     position: relative;
 }
 
@@ -37,26 +55,47 @@ div.video-details > div.spider {
     bottom: -20;
 }
 
+button.sh-button {
+    border-radius: 50px;
+    border: none;
+    background: #607d8b;
+    color: #fff;
+    padding: 5px 20px;
+    transition: all .2s ease-in-out;
+}
+
+button.sh-button:hover, button.sh-button:focus {
+    outline: none;
+    background: #37474f;
+    color: #fff;
+}
+
 h3 {
     font-size: 14px;
     margin-top: 0px;
+    color: #37474f;
+    font-weight: 600;
 }
 
 div.code {
-    margin-top: 355px;
-    padding: 20px;
+    width: 100%;
+    clear: both;
+}
+pre {
+    margin: 0 20px 20px 20px;
 }
 
 footer {
     padding-top: 10px;
     padding-bottom: 5px;
-    background-color: #24292e;
+    background-color: #37474f;
 }
 
 footer * {
-    color: #ffffff;
+    color: #eceff1;
     text-align: center;
     text-decoration: none;
+    padding: 10px 0;
 }
 
 footer a {
@@ -65,5 +104,15 @@ footer a {
 
 footer a:hover {
     color: #ffffff;
-    text-decoration: underline;;
+    text-decoration: underline;
+}
+
+footer .heart {
+    animation: heart-beat 1s alternate infinite;
+    color: #ef5350;
+}
+
+@keyframes heart-beat {
+  0%   { transform: scale(1); }
+  100% { transform: scale(0.7) }
 }
