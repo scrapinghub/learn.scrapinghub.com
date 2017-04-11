@@ -6,6 +6,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
 <script>hljs.initHighlightingOnLoad();</script>
 <link rel="stylesheet" href="css/style.css" />
 
@@ -19,7 +20,7 @@
     
     <div class="row video-row">
         <div class="col-md-6 video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/vkA1cWN4DEc" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="330" src="https://www.youtube.com/embed/vkA1cWN4DEc" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="col-md-6 video-details">
             <h2 id="unit1">1. Getting Started with Web Scraping</h2>
@@ -43,7 +44,7 @@
                 
             </ul>
             <div class="spider">
-                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code0">
+                <button class="code-button btn sh-button" data-toggle="collapse" data-target="#code0">
                     Toggle code
                 </button>
             </div>
@@ -54,12 +55,13 @@
 >>> response.css('span.text::text').extract_first()
 >>> response.css('a.tag::text').extract()
 </code></pre>
-            </div>
+        </div>
+
     </div>
     
     <div class="row video-row">
         <div class="col-md-6 video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/qPvPiMbPSTE" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="330" src="https://www.youtube.com/embed/qPvPiMbPSTE" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="col-md-6 video-details">
             <h2 id="unit2">2. Creating your First Scrapy Spider</h2>
@@ -81,7 +83,7 @@
                 
             </ul>
             <div class="spider">
-                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code1">
+                <button class="code-button btn sh-button" data-toggle="collapse" data-target="#code1">
                     Toggle code
                 </button>
             </div>
@@ -106,12 +108,13 @@ class SingleQuoteSpider(scrapy.Spider):
             }
             yield item
 </code></pre>
-            </div>
+        </div>
+
     </div>
     
     <div class="row video-row">
         <div class="col-md-6 video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/E6lOVwigsNA" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="330" src="https://www.youtube.com/embed/E6lOVwigsNA" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="col-md-6 video-details">
             <h2 id="unit3">3. Scraping Multiple Items per Page</h2>
@@ -132,7 +135,7 @@ class SingleQuoteSpider(scrapy.Spider):
                 
             </ul>
             <div class="spider">
-                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code2">
+                <button class="code-button btn sh-button" data-toggle="collapse" data-target="#code2">
                     Toggle code
                 </button>
             </div>
@@ -157,12 +160,13 @@ class MultipleQuotesSpider(scrapy.Spider):
             }
             yield item
 </code></pre>
-            </div>
+        </div>
+
     </div>
     
     <div class="row video-row">
         <div class="col-md-6 video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/G9Nni6G-iOc" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="330" src="https://www.youtube.com/embed/G9Nni6G-iOc" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="col-md-6 video-details">
             <h2 id="unit4">4. Following Pagination Links</h2>
@@ -186,7 +190,7 @@ class MultipleQuotesSpider(scrapy.Spider):
                 
             </ul>
             <div class="spider">
-                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code3">
+                <button class="code-button btn sh-button" data-toggle="collapse" data-target="#code3">
                     Toggle code
                 </button>
             </div>
@@ -216,12 +220,13 @@ class MultipleQuotesPaginationSpider(scrapy.Spider):
             next_page_url = response.urljoin(next_page_url)
             yield scrapy.Request(url=next_page_url, callback=self.parse)
 </code></pre>
-            </div>
+        </div>
+
     </div>
     
     <div class="row video-row">
         <div class="col-md-6 video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/JW_FxkSohkA" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="330" src="https://www.youtube.com/embed/JW_FxkSohkA" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="col-md-6 video-details">
             <h2 id="unit5">5. Scraping Details Pages from Lists</h2>
@@ -242,7 +247,7 @@ class MultipleQuotesPaginationSpider(scrapy.Spider):
                 
             </ul>
             <div class="spider">
-                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code4">
+                <button class="code-button btn sh-button" data-toggle="collapse" data-target="#code4">
                     Toggle code
                 </button>
             </div>
@@ -274,12 +279,13 @@ class AuthorsSpider(scrapy.Spider):
             'birth_date': response.css('span.author-born-date::text').extract_first(),
         }
 </code></pre>
-            </div>
+        </div>
+
     </div>
     
     <div class="row video-row">
         <div class="col-md-6 video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/EelmnSzykyI" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="330" src="https://www.youtube.com/embed/EelmnSzykyI" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="col-md-6 video-details">
             <h2 id="unit6">6. Scraping Infinite Scrolling Pages</h2>
@@ -306,7 +312,7 @@ class AuthorsSpider(scrapy.Spider):
                 
             </ul>
             <div class="spider">
-                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code5">
+                <button class="code-button btn sh-button" data-toggle="collapse" data-target="#code5">
                     Toggle code
                 </button>
             </div>
@@ -334,12 +340,13 @@ class QuotesInfiniteScrollSpider(scrapy.Spider):
             next_page = data['page'] + 1
             yield scrapy.Request(url=self.api_url.format(next_page), callback=self.parse)
 </code></pre>
-            </div>
+        </div>
+
     </div>
     
     <div class="row video-row">
         <div class="col-md-6 video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/Lo3aswJ7lzw" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="330" src="https://www.youtube.com/embed/Lo3aswJ7lzw" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="col-md-6 video-details">
             <h2 id="unit7">7. Submitting Forms in your Spiders</h2>
@@ -366,7 +373,7 @@ class QuotesInfiniteScrollSpider(scrapy.Spider):
                 
             </ul>
             <div class="spider">
-                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code6">
+                <button class="code-button btn sh-button" data-toggle="collapse" data-target="#code6">
                     Toggle code
                 </button>
             </div>
@@ -403,12 +410,13 @@ class QuotesLoginSpider(scrapy.Spider):
                 ).extract_first()
             }
 </code></pre>
-            </div>
+        </div>
+
     </div>
     
     <div class="row video-row">
         <div class="col-md-6 video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/mw_Vo9m0l8o" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="330" src="https://www.youtube.com/embed/mw_Vo9m0l8o" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="col-md-6 video-details">
             <h2 id="unit8">8. Run your Spiders in the Cloud</h2>
@@ -435,7 +443,7 @@ class QuotesLoginSpider(scrapy.Spider):
                 
             </ul>
             <div class="spider">
-                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code7">
+                <button class="code-button btn sh-button" data-toggle="collapse" data-target="#code7">
                     Toggle code
                 </button>
             </div>
@@ -446,13 +454,14 @@ $ shub login
 $ shub deploy
 $ shub schedule quotes
 </code></pre>
-            </div>
+        </div>
+
     </div>
     
 </div>
 
 <footer>
-    <p>Brought to you with ❤️ by <a href="https://scrapinghub.com">Scrapinghub</a></p>
+    <p>Brought to you with <span class=" heart glyphicon glyphicon-heart" aria-hidden="true"></span>  by <a href="https://scrapinghub.com">Scrapinghub</a></p>
 </footer>
 
 

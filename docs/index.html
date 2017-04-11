@@ -6,7 +6,7 @@ layout: default
     {% for video in site.data.videos %}
     <div class="row video-row">
         <div class="col-md-6 video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video.id }}" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="330" src="https://www.youtube.com/embed/{{ video.id }}" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="col-md-6 video-details">
             <h2 id="unit{{ forloop.index }}">{{ forloop.index }}. {{ video.title }}</h2>
@@ -24,14 +24,15 @@ layout: default
                 {% endfor %}
             </ul>
             <div class="spider">
-                <button class="code-button btn btn-default" data-toggle="collapse" data-target="#code{{ forloop.index0 }}">
+                <button class="code-button btn sh-button" data-toggle="collapse" data-target="#code{{ forloop.index0 }}">
                     Toggle code
                 </button>
             </div>
         </div>
         <div id="code{{ forloop.index0 }}" class="collapse code">
                 <pre><code class="python">{% include spiders/{{forloop.index0}}.py %}</code></pre>
-            </div>
+        </div>
+
     </div>
     {% endfor %}
 </div>
