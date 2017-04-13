@@ -3,6 +3,7 @@
 # Learn Scrapy
 Companion code for the [_Learn Scrapy_](https://www.youtube.com/playlist?list=PLZyvi_9gamL-EE3zQJbU5N3nzJcfNeFHU) video series.
 
+You can access the videos and code in this web page: http://scrapinghub.github.io/learn-scrapy
 
 ### Videos and Source Code
 
