@@ -1,0 +1,34 @@
+- id: QtZPVUmu3OA
+  title: Scraping Book Prices Into a Spreadsheet with Portia
+  description: This video shows the basics of Portia, how to build a scraper for a bookstore and import the scraped data into a spreadsheet.
+  topics:
+    - How to create a Portia spider
+    - How to annotate a page to tell Portia which elements you want to extract
+    - How to deploy and run the spider in Scrapinghub
+  references:
+    - url: https://portia.readthedocs.io/en/latest/
+      description: Portia official documentation
+    - url: https://portia.readthedocs.io/en/latest/getting-started.html
+      description: Getting Started with Portia
+- id: sYtsqRr43PQ
+  title: Scraping Data from Paginated Lists with Portia
+  description: This video shows how to use Portia to scrape data from lists of products separated in multiple pages.
+  topics:
+    - How to configure the link crawling in Portia
+    - How to dynamically generate start URLs for a spider
+  references:
+    - url: https://portia.readthedocs.io/en/latest/examples.html#crawling-paginated-listings
+      description: Crawling paginated listings with Portia
+    - url: https://portia.readthedocs.io/en/latest/examples.html#scraping-multiple-items-from-a-single-page
+      description: Scraping multiple items from a page with Portia
+- id: vBuGnvF9xHg
+  title: Scraping Data Behind Login Forms with Portia
+  description: This video shows how to authenticate your spider in a website and extract data that is available only once you're logged in.
+  topics:
+    - How to add authenticate your spiders in a website
+    - How to configure the user authentication in Portia
+  references:
+    - url: http://portia.readthedocs.io/en/latest/spiders.html?highlight=login#configuring-login-details
+      description: Configuring login details for a Portia spider
+    - url: https://portia.readthedocs.io/en/latest/getting-started.html
+      description: Getting Started with Portia

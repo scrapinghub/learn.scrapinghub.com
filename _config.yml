@@ -1,7 +1,6 @@
-title: Learn Scrapy
+title: Scrapinghub Learning Center
 description: >
-  Learn Scrapy from thr ground up through this series of educational videos. It covers
-  from the first steps to AJAX based pages.
+  Learn web scraping from the ground up with Scrapinghub's educational resources.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: scrapinghub
