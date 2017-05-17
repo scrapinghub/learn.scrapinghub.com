@@ -1,0 +1,34 @@
+language: ruby
+
+rvm:
+  - 2.1
+
+before_install:
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
+
+script:
+  - bundle exec jekyll build
+
+env:
+  global:
+  - secure: dFbFVzA4fbi5ZeUx2tkkhAsQN09s1mFF86YLeruzBQ7neyjCXbjqtmqaOt8XGFJMWGAtfA2sxlbihasWnKA+5tgVk5U6FzjW4b6pxD1LxtVqyk8OUC+9FXPon+LfLOh8Ywxd/gexGxMHRoTUDcHAUHRI/friYcdlkNm579CvMnSsLPqgHSWFmzKzokT2zSw00E3Z1pEL5mv90NwYGq9MXXLrkpxhPAdJFfwJ2bJ+efpr7mQqNKQzkGCY0C63JUTX2J0HXkR37IrvSDb4/tR9iUU4Z5u1ovCDUIp2LJhfVHHRpmW+HF2Ar6pBNqVWTi5LnvRVBSRT2XkHPcdn5B02d6F1zkqLQZdY401zJJwi4kqE3IJUhvMK98tZT1gIOUo5YX9LkrW58pjn0LSd1xwWPNCi2cZu/loVgAlRy8UatcGCgyvTzkQgc7fEkveJMRnhoiuTWSslOLrR4+hCYFf0fkWWWIunnqcLY3GIBiixde5hFnPtNynCbvYi1Gub5zS0bxcgnto1D/ud2GS1HApSEelWIvQeD+5exqXkdpk3AStK+57LWdt8Yr1fB3lAF9E/ZZYZytaM49uswzC8Q+fKfUxg6YolYIR646rkfmahMTF07X69Xv+j+oJx7WY1eGnyOMltgTlyTby4hwr4HpnjaW27xKIMTqKU+ZUMEub8jgA=
+  - secure: Hi7gIiPR42rl8bnbhFGKo1PWRZFwygdO0EyFXtxHypY9TNBSOY+YzzexyqEGOeYnJnq0/p3XEXDiFfsM6URm9qBKq8IoIZiG/fTQQIZaMeWvjcCjdh5MaPmo7zuI/gQ3kmWzxGPrREe9PPO8qvo5TZ0JGAkbdtXWO0k2eu9ojglJit97HK7r3Cm4zG9VVZAS8UcOc0uXCpr8kOkAM2Q7A8qXVIF4hgZdIXXIRhgTCwZdDZvhz9+0FVjFsTXyJyuPOwCAWFjQbK0ZnuMjKt7y43h2BTLln4jpDWeJ4pksOn6P44f97KI1X0LHqj61Dfpa5oVXIPMBeb3V31ssHum90sfeiH1Oqorbxw1X2uNwM9DENpcOvg7h5ssrkf4CrwE4AIjA+oERegj2+FIfJJSay5Dn0V5dWLXCZ9w9WR2hpdXQbD3gpaV5FxCCMm/9XFeWdCN4lnkZsyxu7EnH0OAAShToDC4co4fT9KbqHb8/7MSMAxCvD7kKViSRgeSBeHS1p1RNC3n0cNRstQ72hFLomukhP48p7j8qeA2FXBeas0kjXLdwDpfoKIifsEdOxZuzWC4CMQ2APXJyLuibxD9NLwf5NhbrzOZhEQ6KHnFNmD6+nbSA00O/lGTBLprzt4BvWm8n3QlQldRB5nMhdEp1f8BkA5/JQgQuBXDg/fEJ4/s=
+  - secure: VZ3Wnc4AeCAVGxOwJzBwkn7LHmA3rCd4AfLneYn4uGPt2tLKH4mvCGzwAyuVFb30cA9GZBLkCj3u8XpjDl/48jMQofz4FXCWMvlXxz08mkoRe2acn4XIE0ItzAUOdHYsWk4c07MGh2YS/T14fRSX2Ta684A0nPVj/mA00hiyFb6K0LrwhVfbthgo1GYidsHqUa5M9ZZ83MtcQSF1D9KrkLhAl+mCnZiNrPe5Q3sK49RQm9cvwrogazJGzAj15rR/Ebdcf+Hn89bC8WVvssn+eUYtwXrRkePtlMAtA9VIWeJRDXgNaLPwveVLXslayEweKgGr3FRcIeNeerCTFTSqDihXmD2s5FqrpABUcLrRhrvxdmWz6t6pQopl1yo3v4YVfTH82Jm3nhvUmaVBaBsE4rbkNvSwtfBNJrcyi+h20pqrUaM539aZS4sGgume2kwqJebWxyAMdc3S38jA41gRs9+/WR7n5H6f+Hn/jsyuRv3ATp3+AW4hjpQRW1IKD4lgBe8mba1UwH5KGtCtlNH/q3Z2c1ur5IFl27N/2+jRg5zLmg3p4eW34hLUQRP2gjpIlEKi+oG+u7e3eWX1/rtySnRnTlU+1ZNxmH+vo/OInT/ulWytYa8ErruZ4NmR/rASOXyTNE9yFmOMyQe6DbzdmkrCYaHKFnhwfgyqajhXphs=
+
+deploy:
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  bucket: website-learn-scrapinghub-com
+  skip_cleanup: true
+  local_dir: _site
+  acl: public_read
+  on:
+    branch: master
+
+after_deploy:
+  - aws configure set aws_access_key_id $AWS_ACCESS_KEY
+  - aws configure set aws_secret_access_key $AWS_SECRET_KEY
+  - aws configure set preview.cloudfront true
+  - aws cloudfront create-invalidation --distribution-id $DISTID --paths '/*'
