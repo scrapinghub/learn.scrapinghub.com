@@ -20,12 +20,10 @@ a.primary-cta:hover {
   text-decoration: none;
 }
 
-/*  free courses section  */
-section.free-courses h2 {
+h2 {
   font-size: 40px;
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 40px;
 }
 
 section.free-courses h3 {
@@ -65,18 +63,11 @@ section.training {
   color: #37474f;
 }
 
-section.training h2 {
-  font-size: 40px;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 section.training h3 {
   font-weight: 600;
   font-size: 24px;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 section.training h4 {
@@ -84,19 +75,20 @@ section.training h4 {
 }
 
 section.training p + h4 {
- margin-top: 20px;
+  margin-top: 20px;
 }
 
 section.training li {
   margin-bottom: 5px;
 }
 
-section.training div.training-details > .col-md-6:nth-child(2) {
+section.training div.training-details > .col-md-6:nth-of-type(2) {
   border-left: 1px solid #ccc;
+  padding-left: 20px;
 }
 
 section.training div.training-details > .col-md-6 {
-  padding-left: 20px;
+  padding-left: 0px;
   padding-right: 20px;
 }
 
@@ -131,7 +123,6 @@ section.training .training-topics {
   border: 1px solid #70BB40;
   border-left: 10px solid  #70BB40;
   border-radius: 5px;
-  margin-left: 0px;
   margin-right: 0px;
   padding: 10px 20px;
 }
