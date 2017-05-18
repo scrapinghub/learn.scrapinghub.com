@@ -1,59 +1,49 @@
 ---
 layout: default
 title: Scrapinghub Learning Center
-stylesheet: default.css
 ---
-<section class="free-courses">
-    <h2>Self-paced training</h2>
-    <div class="container">
-        <div class="course">
-            <div class="row">
-                <div class="col-md-5">
-                    <img class="img-responsive" src="img/learn-scrapy-screen.png" alt="">
-                </div>
-                <div class="col-md-7 course-details">
-                    <h3>Learn Scrapy</h3>
-                    <p>With the evergrowing amount of data spread around the web, the need for gathering and structuring that data is also increasing day by day. This is exactly where web scraping comes into play.</p>
+<section class="on-demand-courses">
+    <h2>On demand training</h2>
+    <div class="wrap container-fluid">
 
-                    <p>In this quick course, you'll learn everything you need to get started with web scraping using Python and Scrapy. Among other things, you'll learn how to:</p>
-                    <div class="course-topics">
-                        <ul>
-                            <li>Extract data from the web using CSS selectors</li>
-                            <li>Follow pagination buttons with a spider</li>
-                            <li>Handle websites that use infinite scrolling</li>
-                            <li>Authenticate your spider in a website</li>
-                            <li>Deploy and run your spiders in the cloud</li>
-                        </ul>
-                    </div>
-                    <a class="sh-button" href="/scrapy/">Get started!</a>
-                </div>
+        <div class="courses row">
+            <!-- Scrapy  -->
+            <div class="col-md-6 course-summary">
+                <div class="course-icon">{% include icons/icon-scrapy.svg %}</div>
+                <h2>Learn Scrapy</h2>
+                <a href="{{ site.url }}/scrapy" class="primary-cta">Take me to Scrapy training</a>
+                <h3>With the evergrowing amount of data spread around the web, the need for gathering and structuring that data is also increasing day by day. This is exactly where web scraping comes into play.</h3>
+                <p>In this quick course, you'll learn everything you need to get started with web scraping using Python and Scrapy. Among other things, you'll learn how to:</p>
+                <ul>
+                    <li>Extract data from the web using CSS selectors</li>
+                    <li>Follow pagination buttons with a spider</li>
+                    <li>Handle websites that use infinite scrolling</li>
+                    <li>Authenticate your spider in a website</li>
+                    <li>Deploy and run your spiders in the cloud</li>
+                </ul>
+
             </div>
+            <!-- Portia -->
+            <div class="col-md-6 course-summary">
+                <div class="course-icon">{% include icons/icon-portia.svg %}</div>
+                <h2>Learn Portia</h2>
+                <a href="{{ site.url }}/portia" class="primary-cta">Take me to Portia training</a>
+                <h3>If you have no programming background and want to scrape the web, Portia was designed specially for you. Portia lets you point and click the fields that you want to extract from a page and it will smartly apply your selections to any similar pages that it finds in the website that you are crawling.</h3>
+                <p>In this course you will learn how to:</p>
+                <ul>
+                    <li>Scrape data from the web into a spreadsheet</li>
+                    <li>Create spiders that navigate into a website</li>
+                    <li>Use dynamic URL generation to navigate into a page</li>
+                    <li>Extract data behind login forms</li>
+                </ul>
+            </div>
+
         </div>
 
-        <div class="course">
-            <div class="row">
-                <div class="col-md-5">
-                    <img class="img-responsive" src="img/learn-portia-screen.png" alt="">
-                </div>
-                <div class="col-md-7 course-details">
-                    <h3>Learn Portia</h3>
-                    <p>If you have no programming background and want to scrape the web, Portia was designed specially for you. Portia lets you point and click the fields that you want to extract from a page and it will smartly apply your selections to any similar pages that it finds in the website that you are crawling.</p>
-                    <p>In this course you will learn how to:</p>
-                    <ul>
-                        <li>Scrape data from the web into a spreadsheet</li>
-                        <li>Create spiders that navigate into a website</li>
-                        <li>Use dynamic URL generation to navigate into a page</li>
-                        <li>Extract data behind login forms</li>
-                    </ul>
-
-                    <a class="sh-button" href="/portia/">Get started!</a>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 <section class="training">
-    <div class="container">
+    <div class="wrap container-fluid">
         <h2>Live training</h2>
         <div class="row training-details">
             <h3>Crawling the Web with Scrapy</h3>
