@@ -10,10 +10,11 @@ a {
 
 p, ul, ul li {
     font-size: $base-font-size;
+    line-height: $base-font-size * 1.7;
 }
 .wrap {
     box-sizing: border-box;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -62,14 +63,14 @@ a.primary-cta {
     h2 {
         text-align: center;
         color: $dark-gray;
-        margin-bottom: 20px;
+        font-size: $base-font-size * 2.2;
     }
 }
 
 .course-summary {
-    padding: 0 50px;
+    padding: 50px 0 30px;
     h2 {
-        margin-bottom: 20px;
+        margin-bottom: 0px;
         font-size: $base-font-size * 1.8;
     }
     h3 {
@@ -90,112 +91,94 @@ a.primary-cta {
     }
     a {
         margin-bottom: 20px;
+        margin-left: 0;
     }
     &:first-child {
-        border-right: 2px dotted $light-gray;
+        border-bottom: 2px solid $light-gray;
     }
 }
 
 .course-icon {
-    display: flex;
+    text-align: center;
     svg {
         width: 150px;
         margin: 0 auto;
         fill: $dark-gray;
     }
 }
-
-section.training {
-  background: #eceff1;
-  color: #37474f;
+.training {
+    background: $light-gray;
+    padding: 60px 0;
+    h2 {
+        text-align: center;
+        color: $dark-gray;
+        margin-bottom: 30px;
+        font-size: $base-font-size * 2.2;
+    }
+    h3 {
+        font-size: $base-font-size * 1.8;
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+        &:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 2px;
+            margin: 10px auto 0 auto;
+            background: $dark-gray;
+        }
+    }
+    h4 {
+        color: $dark-gray;
+        font-size: $base-font-size * 1.5;
+        margin-bottom: 10px;
+    }
+    p {
+        margin: 0;
+    }
+    ul {
+        li {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+    }
+    div {
+        padding-bottom: 10px;
+    }
+    .fa {
+        font-size: $base-font-size * 2;
+        color: darken($light-gray, 20%);
+    }
 }
 
-section.training h3 {
-  font-weight: 600;
-  font-size: 24px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-section.training h4 {
-  font-weight: 600;
-}
-
-section.training p + h4 {
-  margin-top: 20px;
-}
-
-section.training li {
-  margin-bottom: 5px;
-}
-
-section.training div.training-details > .col-md-6:nth-of-type(2) {
-  border-left: 1px solid #ccc;
-  padding-left: 20px;
-}
-
-section.training div.training-details > .col-md-6 {
-  padding-left: 0px;
-  padding-right: 20px;
-}
-
-section.training div.training-details {
-  margin-bottom: 20px;
-}
-
-section.training .training-topics li:before {
-  content: "\2714";
-  color: #70BB40;
-  font-size: 20px;
-}
-
-section.training .training-topics li > span {
-  position: relative;
-  left: 10px;
-}
-
-section.training .training-topics ul {
-  list-style: none;
-  margin-left: 0px;
-  margin-top: 10px;
-  padding-left: 10px;
-}
-
-section.training .training-topics ul {
-  font-size: 18px;
-}
-
-section.training .training-topics {
-  margin-bottom: 20px;
-  border: 1px solid #70BB40;
-  border-left: 10px solid  #70BB40;
-  border-radius: 5px;
-  margin-right: 0px;
-  padding: 10px 20px;
-}
-
-section.training .training-topics h4 {
-  font-size: 24px;
-}
-
-div.container {
-    padding: 20px 0;
-}
-
-.sh-button {
-    border-radius: 50px;
-    border: none;
-    background: #607d8b;
-    color: #fff;
-    padding: 5px 20px;
-    transition: all .2s ease-in-out;
-}
-
-.sh-button:hover, .sh-button:focus {
-    outline: none;
-    background: #37474f;
-    color: #fff;
-    text-decoration: none;
+.training-topics {
+    background: lighten($green, 10%);
+    padding: 30px 0 50px 50px;
+    border-radius: 5px;
+    margin: 20px 0;
+    h3 {
+        color: $white;
+        &:after {
+            background: $white;
+        }
+    }
+    ul {
+        padding-bottom: 30px;
+        li {
+            list-style-type: none;
+            margin: 0;
+            color: $white;
+            padding-bottom: 5px;
+        }
+    }
+    .fa {
+        color: $white;
+        font-size: $base-font-size * 1.5;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
 }
 
 footer {
