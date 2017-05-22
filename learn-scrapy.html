@@ -7,33 +7,32 @@ permalink: /scrapy/
     {% for video in site.data.scrapy-videos %}
     <div class="row video-row">
         <div class="col-md-6 video">
-            <iframe width="560" height="330" src="https://www.youtube.com/embed/{{ video.id }}" frameborder="0" allowfullscreen></iframe>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/{{ video.id }}" frameborder="0" allowfullscreen></iframe></div>
         </div>
         <div class="col-md-6 video-details">
             <h2 id="unit{{ forloop.index }}">{{ forloop.index }}. {{ video.title }}</h2>
             <p>{{ video.description }}</p>
-            <h3>Topics</h3>
+            <h3>Topics:</h3>
             <ul>
                 {% for topic in video.topics %}
                 <li>{{ topic }}</li>
                 {% endfor %}
             </ul>
-            <h3>Further Reading</h3>
+            <h3>Further Reading:</h3>
             <ul>
                 {% for ref in video.references %}
                 <li><a href="{{ ref.url }}">{{ ref.description }}</a></li>
                 {% endfor %}
             </ul>
             <div class="spider">
-                <button class="code-button btn sh-button" data-toggle="collapse" data-target="#code{{ forloop.index0 }}">
-                    Toggle code
-                </button>
+                <a class="code-button btn sh-button" data-toggle="collapse" data-target="#code{{ forloop.index0 }}"><i class="fa fa-code" aria-hidden="true"></i> Toggle code</a>
             </div>
         </div>
-        <div id="code{{ forloop.index0 }}" class="collapse code">
+        <div id="code{{ forloop.index0 }}" class="collapse code col-md-12">
             <pre><code class="python">{% include spiders/{{forloop.index0}}.py %}</code></pre>
         </div>
     </div>
+
     {% endfor %}
 </div>
 
