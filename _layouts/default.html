@@ -7,9 +7,9 @@
             <h1>{{ page.title }}</h1>
             {% unless page.title == 'Scrapinghub Learning Center' %}
                 <h2>
-                    <a href="{{ site.url }}" class="back-button"><i class="fa fa-angle-left" aria-hidden="true"></i> Back to Learning center</a>
-                    {% if page.title == 'Learn Portia' %}| <a href="{{ site.url }}/scrapy" class="back-button">Learn Scrapy</a>{% endif %}
-                    {% if page.title == 'Learn Scrapy' %}| <a href="{{ site.url }}/portia" class="back-button">Learn Portia</a>{% endif %}
+                    <a href="{{ site.baseurl }}/" class="back-button"><i class="fa fa-angle-left" aria-hidden="true"></i> Back to Learning center</a>
+                    {% if page.title == 'Learn Portia' %}| <a href="{{ site.baseurl }}/scrapy" class="back-button">Learn Scrapy</a>{% endif %}
+                    {% if page.title == 'Learn Scrapy' %}| <a href="{{ site.baseurl }}/portia" class="back-button">Learn Portia</a>{% endif %}
                 </h2>
             {% endunless %}
         </div>
