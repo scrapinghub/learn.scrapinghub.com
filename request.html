@@ -1,0 +1,139 @@
+---
+layout: default
+title: Training Request
+permalink: /request/
+custom_js_files:
+  - form.js
+  - jquery.validate.min.js
+---
+<section class="quote">
+    <div class="wrap container-fluid">
+        <div class="row">
+            <div class="col-xs-offset-2 col-xs-8 col-xs-offset-2">
+                <h2>Fill out this form to request a <span>training</span></h2>
+            </div>
+            <div class="col-xs-offset-3 col-xs-6 col-xs-offset-3">
+                <form class="schedule-form" accept-charset="UTF-8" action="https://formkeep.com/f/d1ff77fd4a13" method="POST">
+                    <input type="hidden" name="utf8" value="✓">
+                    <input type="hidden" id="base_source" name="base_source" value="299009">
+                    <input type="hidden" id="country" name="country" value="">
+                    <input type="hidden" id="city" name="city" value="">
+
+                    <div class="basic-info">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <label class="desc" for="first_name">First Name</label>
+                                <input type="text" id="first_name" name="first_name" autofocus>
+                            </div>
+                            <div class="col-xs-6">
+                                <label class="desc" for="last_name">Last Name</label>
+                                <input type="text" id="last_name" name="last_name">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <label class="desc" for="email">Business Email Address</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                            <div class="col-xs-6">
+                                <label class="desc" for="phone">Phone Number (optional)</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <label class="desc" for="company">Company</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+                            <div class="col-xs-6">
+                                <label class="desc" for="title">Job Title (optional)</label>
+                                <input type="text" id="title" name="Job Title">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                                <label class="desc" for="timezone">Time Zone</label>
+                                <select id="timezone" name="timezone">
+                                    <option value="1">Americas</option>
+                                    <option value="2">Europe, Middle East, Africa</option>
+                                    <option value="3">Asia, Pacific</option>
+                                </select>
+                        </div>
+                        <div class="col-xs-6">
+                            <label class="desc" for="number_of_seats">Number of seats</label>
+                            <input type="number" id="number_of_seats" name="number_of_seats" default="1"autofocus>
+                        </div>
+                    </div>
+
+                    <div class="details">
+                        <div class="expertise">
+                            <h3>Your team expertise</h3>
+                            <small>Please qualify your team expertise. This will help us selecting a proper training program for your company.</small>
+                            <div class="expertise-item">
+                                <p>Python</p>
+                                <div class="rating">
+                                    <label>No experience</label>
+                                    <input type="radio" name="python_expertise" value="1" />
+                                    <input type="radio" name="python_expertise" value="2" />
+                                    <input type="radio" name="python_expertise" value="3" />
+                                    <input type="radio" name="python_expertise" value="4" />
+                                    <input type="radio" name="python_expertise" value="5" />
+                                    <label>Advanced</label>
+                                    <label for="python_expertise" class="error"></label>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <p>HTML and CSS</p>
+                                <div class="rating">
+                                    <label>No experience</label>
+                                    <input type="radio" name="htmlcss_expertise" value="1" />
+                                    <input type="radio" name="htmlcss_expertise" value="2" />
+                                    <input type="radio" name="htmlcss_expertise" value="3" />
+                                    <input type="radio" name="htmlcss_expertise" value="4" />
+                                    <input type="radio" name="htmlcss_expertise" value="5" />
+                                    <label>Advanced</label>
+                                    <label for="htmlcss_expertise" class="error"></label>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <p>Web Scraping</p>
+                                <div class="rating">
+                                    <label>No experience</label>
+                                    <input type="radio" name="webscraping_expertise" value="1" />
+                                    <input type="radio" name="webscraping_expertise" value="2" />
+                                    <input type="radio" name="webscraping_expertise" value="3" />
+                                    <input type="radio" name="webscraping_expertise" value="4" />
+                                    <input type="radio" name="webscraping_expertise" value="5" />
+                                    <label>Advanced</label>
+                                    <label for="webscraping_expertise" class="error"></label>
+                                </div>
+                            </div>
+                            <div class="expertise-item">
+                                <p>Scrapy</p>
+                                <div class="rating">
+                                    <label>No experience</label>
+                                    <input type="radio" name="scrapy_expertise" value="1" />
+                                    <input type="radio" name="scrapy_expertise" value="2" />
+                                    <input type="radio" name="scrapy_expertise" value="3" />
+                                    <input type="radio" name="scrapy_expertise" value="4" />
+                                    <input type="radio" name="scrapy_expertise" value="5" />
+                                    <label>Advanced</label>
+                                    <label for="scrapy_expertise" class="error"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-description">
+                        <label class="desc" for="description">Further requirements</label>
+                        <textarea name="description" class="field textarea small"></textarea>
+                        <small>Please provide any further details about your team and specific needs you might have with this training.</small>
+                    </div>
+
+                    <input type="submit" class="saveForm" value="Schedule a training">
+                </form>
+            </div>
+        </div>
+</section>
