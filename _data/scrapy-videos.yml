@@ -90,6 +90,20 @@
       description: Understanding CSRF
     - url: https://blog.scrapinghub.com/2016/04/20/scrapy-tips-from-the-pros-april-2016-edition/
       description: Scraping websites based on ViewStates
+- id: VvFC93vAB7U
+  title: Scraping JS pages with Splash
+  description: This video shows how to scrape JavaScript based websites using Scrapy and Splash.
+  topics:
+    - How to identify pages based on JavaScript
+    - How to run Splash
+    - How to integrate your Scrapy spiders with Splash
+  references:
+    - url: https://splash.readthedocs.io/en/stable/
+      description: Splash docs
+    - url: https://github.com/scrapy-plugins/scrapy-splash
+      description: The scrapy-splash plugin
+    - url: https://blog.scrapinghub.com/2015/03/02/handling-javascript-in-scrapy-with-splash/
+      description: Handling JavaScript in Scrapy with Splash
 - id: mw_Vo9m0l8o
   title: Run your Spiders in the Cloud
   description: >
