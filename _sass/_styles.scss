@@ -462,6 +462,76 @@ footer {
 
 
     }
+
+    // GDPR Checkbox CSS
+    .gdpr {
+        label {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin: 20px auto;
+            cursor: pointer;
+            font-size: 14px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        label:nth-of-type(even) {
+            margin-bottom: 45px;
+        }
+
+        label input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            padding-bottom: 0;
+            border: 1px solid $medium-gray;
+            background-color: $lightest-gray;
+        }
+
+        label:hover input ~ .checkmark {
+            background-color: $light-gray;
+        }
+
+        label input:checked ~ .checkmark {
+            background-color: $green;
+            padding-bottom: 0;
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        label input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        // checkmark/indicator
+        label .checkmark:after {
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid #ffffff;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+
     .saveForm {
         display: block;
         background: $purple;
