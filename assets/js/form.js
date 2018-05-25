@@ -17,7 +17,7 @@ $( document ).ready(function() {
         scrapy_expertise: "required",
         webscraping_expertise: "required",
         htmlcss_expertise: "required",
-        privacy_policy: "required",
+        "privacy-policy": "required",
       }
     });
 
