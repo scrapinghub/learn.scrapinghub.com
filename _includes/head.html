@@ -1,3 +1,4 @@
+{% include head_tagmanager.html %}
 <title>{{ page.title }}</title>
 <link rel="shortcut icon" type="image/png" href="{{ site.baseurl }}/img/favicon.png">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -8,7 +9,6 @@
 <script>hljs.initHighlightingOnLoad();</script>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <link rel="stylesheet" href="{{ site.url }}/assets/css/main.css" />
-{% include analytics.html %}
 
 {% for js_file in page.custom_js_files %}
     <script src='{{ site.url }}/assets/js/{{ js_file }}' type="text/javascript"></script>
