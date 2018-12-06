@@ -18,6 +18,10 @@ $( document ).ready(function() {
         webscraping_expertise: "required",
         htmlcss_expertise: "required",
         "privacy-policy": "required",
+      },
+      submitHandler: function(form) {
+        Cookies.set("tag_manager_user_id", sha256($('#email').val()), { expires: 1 });
+        form.submit();
       }
     });
 

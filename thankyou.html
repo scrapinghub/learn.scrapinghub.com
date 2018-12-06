@@ -5,12 +5,16 @@ permalink: /thankyou/
 custom_js_files:
   - form.js
   - jquery.validate.min.js
+  - js.cookie.min.js
 ---
 <section class="quote">
     <div class="wrap container-fluid">
         <h2>Someone from our training team will get in touch shortly</h2>
     </div>
     <script>
-        dataLayer.push({'event':'requestTraining'});
+        dataLayer.push({
+          'event':'requestTraining',
+          'userId': Cookies.get('tag_manager_user_id')
+        });
     </script>
 </section>
