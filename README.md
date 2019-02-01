@@ -12,6 +12,7 @@ Companion code for the [_Learn Scrapy_](https://www.youtube.com/playlist?list=PL
 5. [Scraping Details Pages from Lists](https://www.youtube.com/watch?v=JW_FxkSohkA) - [`example spider`](spiders/5-authors.py)
 6. [Scraping Infinite Scrolling Pages](https://www.youtube.com/watch?v=EelmnSzykyI) - [`example spider`](spiders/6-quotes-infinite-scroll.py)
 7. [Submitting Forms in your Scrapy Spiders](https://www.youtube.com/watch?v=Lo3aswJ7lzw) - [`example spider`](spiders/7-quotes-loginspider.py)
-8. [Run your Scrapy Spiders in the Cloud](https://www.youtube.com/watch?v=mw_Vo9m0l8o)
+8. [Scraping JavaScript pages with Scrapy and Splash](https://www.youtube.com/watch?v=VvFC93vAB7U) - [`example spider`](spiders/8-scrapy-with-splash.py)
+9. [Run your Scrapy Spiders in the Cloud](https://www.youtube.com/watch?v=mw_Vo9m0l8o)
 
 Brought to you with :heart: by [Scrapinghub](http://scrapinghub.com).
