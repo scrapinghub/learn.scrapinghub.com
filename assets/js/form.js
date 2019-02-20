@@ -4,7 +4,6 @@ $( document ).ready(function() {
         $('#country').val(x["country_name"]);
         $('#city').val(x["city"]);
     });
-
     $("form.schedule-form").validate({
       rules: {
         first_name: "required",
@@ -24,5 +23,15 @@ $( document ).ready(function() {
         form.submit();
       }
     });
-
+    function setGacid(){
+      if (typeof ga !== "undefined" && typeof ga.getAll === "function") {
+          try {
+            $("#ga_cid").val(ga.getAll()[0].get('clientId'));
+          } catch (e) {}
+      }
+      else {
+          setTimeout(setGacid, 500);
+      }
+    }
+    setGacid();
 });
