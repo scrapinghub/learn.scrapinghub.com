@@ -3,10 +3,10 @@ layout: default
 title: Training Request
 permalink: /request/
 custom_js_files:
-  - form.js
-  - jquery.validate.min.js
-  - js.cookie.min.js
-  - sha256.min.js
+- form.js
+- jquery.validate.min.js
+- js.cookie.min.js
+- sha256.min.js
 ---
 <section class="quote">
     <div class="wrap container-fluid">
@@ -15,12 +15,18 @@ custom_js_files:
                 <h2>Fill out this form to request a <span>training</span></h2>
             </div>
             <div class="col-xs-offset-3 col-xs-6 col-xs-offset-3">
-                <form class="schedule-form" accept-charset="UTF-8" action="https://formkeep.com/f/d1ff77fd4a13" method="POST">
-                    <input type="hidden" name="utf8" value="✓">
-                    <input type="hidden" id="base_source" name="base_source" value="299009">
-                    <input type="hidden" id="country" name="country" value="">
-                    <input type="hidden" id="city" name="city" value="">
-                    <input type="hidden" id="ga_cid" name="ga_cid" value="">
+                <form class="schedule-form" accept-charset="UTF-8" action="https://formkeep.com/f/d1ff77fd4a13"
+                    method="POST">
+
+                    <input type="hidden" id="country" name="country" value="" />
+                    <input type="hidden" id="utm_source" name="utm_source" value="" />
+                    <input type="hidden" id="city" name="city" value="" />
+
+                    <input type="hidden" id="gclid" name="gclid" value="" />
+                    <input type="hidden" id="ga_cid" name="ga_cid" value="" />
+                    <input type="hidden" id="submission_url" name="submission_url" value="" />
+
+
                     <div class="basic-info">
                         <div class="row">
                             <div class="col-xs-6">
@@ -49,30 +55,31 @@ custom_js_files:
                                 <input type="text" id="company" name="company">
                             </div>
                             <div class="col-xs-6">
-                                <label class="desc" for="title">Job Title (optional)</label>
-                                <input type="text" id="title" name="Job Title">
+                                <label class="desc" for="job_title">Job Title (optional)</label>
+                                <input type="text" id="job_title" name="job_title">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-6">
-                                <label class="desc" for="timezone">Time Zone</label>
-                                <select id="timezone" name="timezone">
-                                    <option value="1">Americas</option>
-                                    <option value="2">Europe, Middle East, Africa</option>
-                                    <option value="3">Asia, Pacific</option>
-                                </select>
+                            <label class="desc" for="timezone">Time Zone</label>
+                            <select id="timezone" name="timezone">
+                                <option value="Americas">Americas</option>
+                                <option value="Europe, Middle East, Africa">Europe, Middle East, Africa</option>
+                                <option value="Asia, Pacific">Asia, Pacific</option>
+                            </select>
                         </div>
                         <div class="col-xs-6">
                             <label class="desc" for="number_of_seats">Number of seats</label>
-                            <input type="number" id="number_of_seats" name="number_of_seats" default="1"autofocus>
+                            <input type="number" id="number_of_seats" name="number_of_seats" default="1" autofocus>
                         </div>
                     </div>
 
                     <div class="details">
                         <div class="expertise">
                             <h3>Your team expertise</h3>
-                            <small>Please qualify your team expertise. This will help us selecting a proper training program for your company.</small>
+                            <small>Please qualify your team expertise. This will help us selecting a proper training
+                                program for your company.</small>
                             <div class="expertise-item">
                                 <p>Python</p>
                                 <div class="rating">
@@ -131,17 +138,21 @@ custom_js_files:
                     <div class="project-description">
                         <label class="desc" for="description">Further requirements</label>
                         <textarea name="description" class="field textarea small"></textarea>
-                        <small>Please provide any further details about your team and specific needs you might have with this training.</small>
+                        <small>Please provide any further details about your team and specific needs you might have with
+                            this training.</small>
                     </div>
 
                     <div class="gdpr">
-                        <label>Yes! I would like to receive email updates from Scrapinghub on products, news, events, and offers.
-                            <input type="checkbox" id="marketing_emails" name="marketing_emails">
+                        <label>Yes! I would like to receive email updates from Scrapinghub on products, news, events,
+                            and offers.
+                            <input type="checkbox" id="marketing_emails" name="marketing_emails"
+                                class="non-europe-check">
                             <span class="checkmark"></span>
                         </label>
 
-                        <label>I have read and agree to Scrapinghub's <a href="{{ site.url }}/privacy-policy">Privacy Policy</a> and <a href="{{ site.url }}/cookie-policy">Cookie Policy</a>.
-                            <input type="checkbox" id="privacy-policy" name="privacy-policy">
+                        <label>I have read and agree to Scrapinghub's <a href="{{ site.url }}/privacy-policy">Privacy
+                                Policy</a> and <a href="{{ site.url }}/cookie-policy">Cookie Policy</a>.
+                            <input type="checkbox" id="privacy_policy" name="privacy_policy">
                             <span class="checkmark"></span>
                         </label>
                     </div>

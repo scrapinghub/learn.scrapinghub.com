@@ -14,7 +14,7 @@ custom_js_files:
     <script>
         dataLayer.push({
           'event':'requestTraining',
-          'userId': Cookies.get('tag_manager_user_id')
+          'userId': get_tm_user_id()
         });
     </script>
 </section>
