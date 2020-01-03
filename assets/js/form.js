@@ -22,15 +22,6 @@ function maybeStoreGclid() {
   }
 }
 
-function save_tm_user_id(user_id) {
-  Cookies.set("tag_manager_user_id", sha256(user_id));
-}
-
-function get_tm_user_id() {
-  return Cookies.get("tag_manager_user_id");
-}
-
-
 jQuery(function ($) {
   var ip_info_url = 'https://api.ipstack.com/check?access_key=2929a6b9a5417671d6fa6dd87eca1327&format=1';
 
@@ -86,8 +77,12 @@ jQuery(function ($) {
     },
     submitHandler: function (form) {
       // Used for tracking of submissions on google analytics, see thank you page
-      save_tm_user_id($('#email').val());
-      $('#tag_manager_user_id').val(get_tm_user_id());
+      var userId = sha256($('#email').val());
+      $('#tag_manager_user_id').val(userId);
+      dataLayer.push({
+        'event': 'requestTraining',
+        'userId': userId
+      });
       form.submit();
     }
   });
