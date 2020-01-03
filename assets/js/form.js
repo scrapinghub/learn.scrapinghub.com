@@ -23,10 +23,7 @@ function maybeStoreGclid() {
 }
 
 function save_tm_user_id(user_id) {
-  Cookies.set("tag_manager_user_id", sha256(user_id), {
-    expires: 1,
-    domain: '.scrapinghub.com'
-  });
+  Cookies.set("tag_manager_user_id", sha256(user_id));
 }
 
 function get_tm_user_id() {
@@ -90,6 +87,7 @@ jQuery(function ($) {
     submitHandler: function (form) {
       // Used for tracking of submissions on google analytics, see thank you page
       save_tm_user_id($('#email').val());
+      $('#tag_manager_user_id').val(get_tm_user_id());
       form.submit();
     }
   });
