@@ -8,18 +8,15 @@ function getQueryStrParam(name, url) {
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
-function maybeStoreUtmSource() {
-  var utm_source = getQueryStrParam('utm_source');
-  if (utm_source) {
-    Cookies.set('utm_source', utm_source);
-  }
+function storeUrlParam(param_name) {
+  var hasCookie = getStoredParam(param_name);
+  if (hasCookie == "" || hasCookie) return;
+  var param = getQueryStrParam(param_name) || "";
+  Cookies.set(param_name, param, {domain: ".scrapinghub.com", expires: 90})
 }
 
-function maybeStoreGclid() {
-  var gclid = getQueryStrParam("gclid", window.location.search);
-  if (gclid) {
-    Cookies.set("gclid", gclid);
-  }
+function getStoredParam(param_name) {
+  return Cookies.get(param_name, {domain: ".scrapinghub.com"})
 }
 
 jQuery(function ($) {
@@ -37,11 +34,26 @@ jQuery(function ($) {
     update_region_info(region_data);
   });
 
-  maybeStoreUtmSource();
-  maybeStoreGclid();
+  storeUrlParam("utm_campaign");
+  storeUrlParam("utm_activity");
+  storeUrlParam("utm_medium");
+  storeUrlParam("utm_source");
+  storeUrlParam("utm_content");
+  storeUrlParam("utm_primary");
+  storeUrlParam("utm_secondary");
+  storeUrlParam("utm_goal");
+  
+  storeUrlParam("gclid");
 
-  $('#gclid').val(Cookies.get('gclid'));
-  $('#utm_source').val(Cookies.get('utm_source'));
+  $('#gclid').val(getStoredParam("gclid"));
+  $('#utm_campaign').val(getStoredParam('utm_campaign'));
+  $('#utm_activity').val(getStoredParam('utm_activity'));
+  $('#utm_medium').val(getStoredParam('utm_medium'));
+  $('#utm_source').val(getStoredParam('utm_source'));
+  $('#utm_content').val(getStoredParam('utm_content'));
+  $('#utm_primary').val(getStoredParam('utm_primary'));
+  $('#utm_secondary').val(getStoredParam('utm_secondary'));
+  $('#utm_goal').val(getStoredParam('utm_goal'));
 
   $.get("https://ipapi.co/json/", function (x) {
     $("#country").val(x["country_name"]);
